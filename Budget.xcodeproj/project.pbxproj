@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		DAACBF122D7782E1882958A9 /* Pods_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258420E8C6E775639257DC36 /* Pods_Budget.framework */; };
 		FAC5B21B220A73A600DD66CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B21A220A73A600DD66CF /* AppDelegate.swift */; };
-		FAC5B21D220A73A600DD66CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B21C220A73A600DD66CF /* ViewController.swift */; };
+		FAC5B21D220A73A600DD66CF /* ExpensesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B21C220A73A600DD66CF /* ExpensesHomeViewController.swift */; };
 		FAC5B220220A73A600DD66CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC5B21E220A73A600DD66CF /* Main.storyboard */; };
 		FAC5B222220A73A700DD66CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC5B221220A73A700DD66CF /* Assets.xcassets */; };
 		FAC5B225220A73A700DD66CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC5B223220A73A700DD66CF /* LaunchScreen.storyboard */; };
 		FAC5B22D220A748B00DD66CF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAC5B22C220A748B00DD66CF /* GoogleService-Info.plist */; };
+		FAC5B230220CE5E200DD66CF /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B22F220CE5E200DD66CF /* ColorConstants.swift */; };
+		FAC5B239220CEDA100DD66CF /* ExpensesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B237220CEDA100DD66CF /* ExpensesCell.swift */; };
+		FAC5B23A220CEDA100DD66CF /* ExpensesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC5B238220CEDA100DD66CF /* ExpensesCell.xib */; };
+		FAC5B23F220CF60600DD66CF /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B23E220CF60600DD66CF /* Expense.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,12 +26,16 @@
 		904E0CD4B643F0A440081470 /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		FAC5B217220A73A600DD66CF /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC5B21A220A73A600DD66CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAC5B21C220A73A600DD66CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAC5B21C220A73A600DD66CF /* ExpensesHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesHomeViewController.swift; sourceTree = "<group>"; };
 		FAC5B21F220A73A600DD66CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAC5B221220A73A700DD66CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC5B224220A73A700DD66CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC5B226220A73A700DD66CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC5B22C220A748B00DD66CF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAC5B22F220CE5E200DD66CF /* ColorConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		FAC5B237220CEDA100DD66CF /* ExpensesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCell.swift; sourceTree = "<group>"; };
+		FAC5B238220CEDA100DD66CF /* ExpensesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpensesCell.xib; sourceTree = "<group>"; };
+		FAC5B23E220CF60600DD66CF /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC5B219220A73A600DD66CF /* Budget */,
+				FAC5B22C220A748B00DD66CF /* GoogleService-Info.plist */,
 				FAC5B218220A73A600DD66CF /* Products */,
 				CE2A28745E68BF05561D8844 /* Pods */,
 				D4E4A11D92CCB0E63B02BD5F /* Frameworks */,
@@ -80,15 +89,90 @@
 		FAC5B219220A73A600DD66CF /* Budget */ = {
 			isa = PBXGroup;
 			children = (
-				FAC5B22C220A748B00DD66CF /* GoogleService-Info.plist */,
-				FAC5B21A220A73A600DD66CF /* AppDelegate.swift */,
-				FAC5B21C220A73A600DD66CF /* ViewController.swift */,
-				FAC5B21E220A73A600DD66CF /* Main.storyboard */,
-				FAC5B221220A73A700DD66CF /* Assets.xcassets */,
-				FAC5B223220A73A700DD66CF /* LaunchScreen.storyboard */,
 				FAC5B226220A73A700DD66CF /* Info.plist */,
+				FAC5B21A220A73A600DD66CF /* AppDelegate.swift */,
+				FAC5B232220CEB6D00DD66CF /* Assets */,
+				FAC5B231220CEB2D00DD66CF /* View Controller */,
+				FAC5B236220CED7100DD66CF /* Model */,
+				FAC5B22E220CE4F900DD66CF /* Constants */,
 			);
 			path = Budget;
+			sourceTree = "<group>";
+		};
+		FAC5B22E220CE4F900DD66CF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B22F220CE5E200DD66CF /* ColorConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		FAC5B231220CEB2D00DD66CF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B21C220A73A600DD66CF /* ExpensesHomeViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		FAC5B232220CEB6D00DD66CF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B234220CEB7D00DD66CF /* Storyboard */,
+				FAC5B233220CEB7400DD66CF /* Assets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FAC5B233220CEB7400DD66CF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B221220A73A700DD66CF /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FAC5B234220CEB7D00DD66CF /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B223220A73A700DD66CF /* LaunchScreen.storyboard */,
+				FAC5B21E220A73A600DD66CF /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		FAC5B236220CED7100DD66CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B23D220CF5F400DD66CF /* 01. Expenses */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAC5B23B220CF5D900DD66CF /* Expenses Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B237220CEDA100DD66CF /* ExpensesCell.swift */,
+				FAC5B238220CEDA100DD66CF /* ExpensesCell.xib */,
+			);
+			path = "Expenses Cell";
+			sourceTree = "<group>";
+		};
+		FAC5B23C220CF5E700DD66CF /* Expenses Object */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B23E220CF60600DD66CF /* Expense.swift */,
+			);
+			path = "Expenses Object";
+			sourceTree = "<group>";
+		};
+		FAC5B23D220CF5F400DD66CF /* 01. Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				FAC5B23C220CF5E700DD66CF /* Expenses Object */,
+				FAC5B23B220CF5D900DD66CF /* Expenses Cell */,
+			);
+			path = "01. Expenses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC5B23A220CEDA100DD66CF /* ExpensesCell.xib in Resources */,
 				FAC5B225220A73A700DD66CF /* LaunchScreen.storyboard in Resources */,
 				FAC5B22D220A748B00DD66CF /* GoogleService-Info.plist in Resources */,
 				FAC5B222220A73A700DD66CF /* Assets.xcassets in Resources */,
@@ -172,6 +257,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Budget/Pods-Budget-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
@@ -187,6 +273,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
@@ -230,8 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC5B21D220A73A600DD66CF /* ViewController.swift in Sources */,
+				FAC5B239220CEDA100DD66CF /* ExpensesCell.swift in Sources */,
+				FAC5B230220CE5E200DD66CF /* ColorConstants.swift in Sources */,
+				FAC5B21D220A73A600DD66CF /* ExpensesHomeViewController.swift in Sources */,
 				FAC5B21B220A73A600DD66CF /* AppDelegate.swift in Sources */,
+				FAC5B23F220CF60600DD66CF /* Expense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,4 +8,5 @@ target 'Budget' do
   # Pods for Budget
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'ObjectMapper'
 end

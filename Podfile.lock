@@ -105,11 +105,13 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - ObjectMapper (3.3.0)
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
+  - ObjectMapper
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -129,6 +131,7 @@ SPEC REPOS:
     - gRPC-RxLibrary
     - leveldb-library
     - nanopb
+    - ObjectMapper
     - Protobuf
 
 SPEC CHECKSUMS:
@@ -148,8 +151,9 @@ SPEC CHECKSUMS:
   gRPC-RxLibrary: 3c305f32155024b116b780f389323c73a28197e6
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: b08dc6fd287d689a70c17b7c9877611b762f1c87
+PODFILE CHECKSUM: bcaef38e16155cf215e61a1ee16a34eec96fd148
 
 COCOAPODS: 1.5.3
