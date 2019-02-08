@@ -10,12 +10,17 @@ import UIKit
 
 class ExpensesCell: UITableViewCell {
 
+    @IBOutlet weak private var expenseText: UILabel!
     @IBOutlet weak var lbExpenseName: UILabel!
     @IBOutlet weak var lbExpenseValue: UILabel!
+    @IBOutlet weak var lbDateExpense: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        expenseText.textColor = APPCOLOR.ORANGE
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

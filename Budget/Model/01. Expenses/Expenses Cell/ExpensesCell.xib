@@ -46,12 +46,24 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMh-wd-lbm">
+                        <rect key="frame" x="230.5" y="11" width="111.5" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="5tx-oM-O7h"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="vgs-90-7MI" secondAttribute="bottom" constant="5" id="5gu-ap-BKi"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="WMh-wd-lbm" secondAttribute="trailing" id="EkJ-ho-zb3"/>
                     <constraint firstItem="vgs-90-7MI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="O1u-fa-tpp"/>
                     <constraint firstItem="IMV-WQ-itI" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="OxE-ST-00o"/>
                     <constraint firstItem="3b9-My-ZwU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Z6K-hd-67J"/>
+                    <constraint firstItem="3b9-My-ZwU" firstAttribute="centerY" secondItem="WMh-wd-lbm" secondAttribute="centerY" id="cE9-c8-qhL"/>
+                    <constraint firstItem="IMV-WQ-itI" firstAttribute="top" secondItem="WMh-wd-lbm" secondAttribute="bottom" constant="5" id="hcH-Iy-VD7"/>
                     <constraint firstItem="vgs-90-7MI" firstAttribute="top" secondItem="3b9-My-ZwU" secondAttribute="bottom" constant="5" id="hhP-Go-YVA"/>
                     <constraint firstItem="vgs-90-7MI" firstAttribute="centerY" secondItem="IMV-WQ-itI" secondAttribute="centerY" id="qof-zD-tKC"/>
                     <constraint firstItem="3b9-My-ZwU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="sN9-1n-WB8"/>
@@ -59,6 +71,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="expenseText" destination="3b9-My-ZwU" id="bLS-O5-yMP"/>
+                <outlet property="lbDateExpense" destination="WMh-wd-lbm" id="YZ6-lu-4qK"/>
                 <outlet property="lbExpenseName" destination="vgs-90-7MI" id="LrL-Wt-NS9"/>
                 <outlet property="lbExpenseValue" destination="IMV-WQ-itI" id="v77-WH-e6t"/>
             </connections>

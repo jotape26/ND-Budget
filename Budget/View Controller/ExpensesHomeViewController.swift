@@ -13,8 +13,10 @@ class ExpensesHomeViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var expensesTable: UITableView!
+    @IBOutlet weak var lbBudget: UILabel!
     var db: Firestore?
     var expenses: [Expense] = []
+    var test = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +56,28 @@ extension ExpensesHomeViewController {
                 snap.documents.forEach({ (snap) in
                     let expense = Expense(JSON: snap.data())
                     if let expense = expense {
+                        
+                        if let date = expense.expenseDate {
+                            if Calendar.current.isDate(date, equalTo: Date(), toGranularity: .month){
+                                self.test = self.test + expense.expenseValue!
+                            }
+                        }
+                        
+                        
                         self.expenses.append(expense)
                     }
                 })
             }
             
             DispatchQueue.main.async {
+                self.lbBudget.text = "You've spent \(self.test.description) this month"
+                
+                if self.test > 1000.0 {
+                    DispatchQueue.main.async {
+                        self.headerView.backgroundColor = APPCOLOR.ORANGE
+                        self.navigationController?.navigationBar.barTintColor = APPCOLOR.ORANGE
+                    }
+                }
                 self.expensesTable.reloadData()
             }
             
@@ -72,14 +90,24 @@ extension ExpensesHomeViewController : UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return expenses.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpensesCell") as! ExpensesCell
         
         cell.lbExpenseName.text = expenses[indexPath.row].expenseName
         cell.lbExpenseValue.text = expenses[indexPath.row].expenseValue?.description
+        
+        let df = DateFormatter()
+        df.dateFormat = "dd/MM/yyyy"
+        
+        if let expense = expenses[indexPath.row].expenseDate {
+            cell.lbDateExpense.text = df.string(from: expense)
+        } else {
+            cell.lbDateExpense.text = ""
+        }
+        
         return cell
     }
-
+    
 }
 

@@ -13,4 +13,5 @@ struct APPCOLOR {
     static let WHITE_BG = UIColor(red:1.00, green:1.00, blue:0.98, alpha:1.0)
     static let LIGHT_GREEN = UIColor(red:0.37, green:0.76, blue:0.60, alpha:1.0)
     static let DARK_GREEN = UIColor(red:0.33, green:0.53, blue:0.29, alpha:1.0)
+    static let ORANGE = UIColor(red:0.85, green:0.37, blue:0.32, alpha:1.0)
 }
