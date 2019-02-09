@@ -54,6 +54,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="7cr-pD-gRx">
                         <barButtonItem key="backBarButtonItem" title="Back" id="0RP-2Q-lrd"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="TZR-9F-9RW">
+                            <connections>
+                                <action selector="slkaf:" destination="BYZ-38-t0r" id="Mo7-RC-W97"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="expensesTable" destination="2s3-Ne-ott" id="NXQ-LI-y0z"/>

@@ -8,26 +8,31 @@
 
 import UIKit
 import FirebaseFirestore
+import GoogleSignIn
 
 class ExpensesHomeViewController: UIViewController {
     
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var expensesTable: UITableView!
     @IBOutlet weak var lbBudget: UILabel!
-    var db: Firestore?
     var expenses: [Expense] = []
     var test = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        db = Firestore.firestore()
         configureScreen()
         getExpenses()
         
         expensesTable.register(UINib(nibName: "ExpensesCell", bundle: nil), forCellReuseIdentifier: "ExpensesCell")
         expensesTable.delegate = self
         expensesTable.dataSource = self
+    }
+    @IBAction func slkaf(_ sender: Any) {
+        GIDSignIn.sharedInstance()?.disconnect()        
+//        let onboardingVC = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController()
+//        
+//        present(onboardingVC!, animated: true, completion: nil)
     }
     
 }
@@ -44,30 +49,6 @@ extension ExpensesHomeViewController {
     }
     
     func getExpenses() {
-        guard let db = db else { return }
-        
-        db.collection("users").document("jotape26").collection("expenses").getDocuments { (snap, err) in
-            if err !=  nil {
-                print("fuck")
-                return
-            }
-            
-            if let snap = snap {
-                snap.documents.forEach({ (snap) in
-                    let expense = Expense(JSON: snap.data())
-                    if let expense = expense {
-                        
-                        if let date = expense.expenseDate {
-                            if Calendar.current.isDate(date, equalTo: Date(), toGranularity: .month){
-                                self.test = self.test + expense.expenseValue!
-                            }
-                        }
-                        
-                        
-                        self.expenses.append(expense)
-                    }
-                })
-            }
             
             DispatchQueue.main.async {
                 self.lbBudget.text = "You've spent \(self.test.description) this month"
@@ -79,8 +60,6 @@ extension ExpensesHomeViewController {
                     }
                 }
                 self.expensesTable.reloadData()
-            }
-            
         }
         
     }

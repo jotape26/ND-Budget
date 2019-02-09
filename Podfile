@@ -9,4 +9,6 @@ target 'Budget' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'ObjectMapper'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 end

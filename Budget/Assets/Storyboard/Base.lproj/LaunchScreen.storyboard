@@ -18,17 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZu-zg-8qb">
-                                <rect key="frame" x="120.5" y="297.5" width="134" height="72"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="45"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BudgetLogo" translatesAutoresizingMaskIntoConstraints="NO" id="eqH-11-wdT">
+                                <rect key="frame" x="112.5" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eqH-11-wdT" secondAttribute="height" multiplier="1:1" id="hZE-US-Thn"/>
+                                    <constraint firstAttribute="width" constant="150" id="tgJ-73-uiB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.33333333329999998" green="0.52941176469999995" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.054901960780000002" green="0.1764705882" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pZu-zg-8qb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7Tc-AS-ekv"/>
-                            <constraint firstItem="pZu-zg-8qb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="R4v-U1-i3s"/>
+                            <constraint firstItem="eqH-11-wdT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="17s-r1-Fcm"/>
+                            <constraint firstItem="eqH-11-wdT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ZXl-f6-GC8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,4 +39,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BudgetLogo" width="648" height="648"/>
+    </resources>
 </document>
