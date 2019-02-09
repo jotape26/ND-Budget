@@ -11,6 +11,8 @@
 		FAA2416B220E2B1A00ED4426 /* OnboardingInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2416A220E2B1A00ED4426 /* OnboardingInitialViewController.swift */; };
 		FAA2416E220E53A800ED4426 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2416D220E53A800ED4426 /* FirebaseService.swift */; };
 		FAA24170220E6BEB00ED4426 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA2416F220E6BEB00ED4426 /* GoogleService-Info.plist */; };
+		FAA24173220F3A4000ED4426 /* VanguardCF-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA24172220F3A4000ED4426 /* VanguardCF-Bold.otf */; };
+		FAA24175220F3A5400ED4426 /* VanguardCF-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = FAA24174220F3A5400ED4426 /* VanguardCF-Heavy.otf */; };
 		FAC5B21B220A73A600DD66CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B21A220A73A600DD66CF /* AppDelegate.swift */; };
 		FAC5B21D220A73A600DD66CF /* ExpensesHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC5B21C220A73A600DD66CF /* ExpensesHomeViewController.swift */; };
 		FAC5B220220A73A600DD66CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC5B21E220A73A600DD66CF /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 		FAA2416A220E2B1A00ED4426 /* OnboardingInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInitialViewController.swift; sourceTree = "<group>"; };
 		FAA2416D220E53A800ED4426 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		FAA2416F220E6BEB00ED4426 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAA24172220F3A4000ED4426 /* VanguardCF-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VanguardCF-Bold.otf"; sourceTree = "<group>"; };
+		FAA24174220F3A5400ED4426 /* VanguardCF-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "VanguardCF-Heavy.otf"; sourceTree = "<group>"; };
 		FAC5B217220A73A600DD66CF /* Budget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC5B21A220A73A600DD66CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC5B21C220A73A600DD66CF /* ExpensesHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesHomeViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		FAA24171220F39D200ED4426 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FAA24172220F3A4000ED4426 /* VanguardCF-Bold.otf */,
+				FAA24174220F3A5400ED4426 /* VanguardCF-Heavy.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		FAC5B20E220A73A600DD66CF = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 				FAC5B232220CEB6D00DD66CF /* Assets */,
 				FAC5B231220CEB2D00DD66CF /* View Controller */,
 				FAC5B236220CED7100DD66CF /* Model */,
+				FAA24171220F39D200ED4426 /* Fonts */,
 				FAC5B22E220CE4F900DD66CF /* Constants */,
 				FAA2416C220E538F00ED4426 /* Service */,
 			);
@@ -254,10 +268,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAC5B23A220CEDA100DD66CF /* ExpensesCell.xib in Resources */,
+				FAA24173220F3A4000ED4426 /* VanguardCF-Bold.otf in Resources */,
 				FAA24170220E6BEB00ED4426 /* GoogleService-Info.plist in Resources */,
 				FAC5B225220A73A700DD66CF /* LaunchScreen.storyboard in Resources */,
 				FAC5B241220E276F00DD66CF /* Onboarding.storyboard in Resources */,
 				FAC5B222220A73A700DD66CF /* Assets.xcassets in Resources */,
+				FAA24175220F3A5400ED4426 /* VanguardCF-Heavy.otf in Resources */,
 				FAC5B220220A73A600DD66CF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

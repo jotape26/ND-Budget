@@ -28,7 +28,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.52941176469999995" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.054901960780000002" green="0.1764705882" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="VnZ-3F-J35" firstAttribute="centerX" secondItem="bWe-8L-M2o" secondAttribute="centerX" id="7qv-fU-1uU"/>
                                     <constraint firstItem="VnZ-3F-J35" firstAttribute="centerY" secondItem="bWe-8L-M2o" secondAttribute="centerY" id="TbC-bu-4nd"/>
@@ -54,7 +54,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="7cr-pD-gRx">
                         <barButtonItem key="backBarButtonItem" title="Back" id="0RP-2Q-lrd"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="TZR-9F-9RW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TZR-9F-9RW">
                             <connections>
                                 <action selector="slkaf:" destination="BYZ-38-t0r" id="Mo7-RC-W97"/>
                             </connections>

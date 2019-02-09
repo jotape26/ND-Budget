@@ -18,6 +18,11 @@ class ExpensesHomeViewController: UIViewController {
     var expenses: [Expense] = []
     var test = 0.0
     
+    fileprivate var profileButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(named: "profile"), style: UIBarButtonItem.Style.done, target: self, action: nil)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,8 +49,12 @@ extension ExpensesHomeViewController {
         self.navigationController?.navigationBar.barTintColor = APPCOLOR.DARK_GREEN
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white, .font : UIFont.init(name: "Noteworthy", size: 26)!]
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.foregroundColor: UIColor.white,
+             NSAttributedString.Key.font: UIFont(name: "VanguardCF-Bold", size: 21)!]
         self.headerView.backgroundColor = APPCOLOR.DARK_GREEN
+        self.navigationItem.leftBarButtonItem = profileButton
+        self.navigationItem.leftBarButtonItem?.tintColor = APPCOLOR.LIGHT_GREEN
     }
     
     func getExpenses() {
