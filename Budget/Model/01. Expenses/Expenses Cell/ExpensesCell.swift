@@ -10,6 +10,7 @@ import UIKit
 
 class ExpensesCell: UITableViewCell {
 
+    @IBOutlet weak var backgroundFromCell: UIView!
     @IBOutlet weak private var expenseText: UILabel!
     @IBOutlet weak var lbExpenseName: UILabel!
     @IBOutlet weak var lbExpenseValue: UILabel!
@@ -18,7 +19,7 @@ class ExpensesCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        backgroundFromCell.layer.cornerRadius = 3
         expenseText.textColor = APPCOLOR.ORANGE
         
     }
