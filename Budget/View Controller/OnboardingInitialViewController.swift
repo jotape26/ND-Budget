@@ -16,12 +16,14 @@ class OnboardingInitialViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var optionsView: UIView!
     @IBOutlet weak var lbFriend: UILabel!
     @IBOutlet weak var btnGoogleLogin: GIDSignInButton!
+    @IBOutlet weak var lbAccess: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.logoConstraint.constant = 0
         self.optionsView.alpha = 0
         self.lbFriend.alpha = 0
+        self.lbAccess.alpha = 0
         self.btnGoogleLogin.alpha = 0        
         
         
@@ -41,6 +43,7 @@ class OnboardingInitialViewController: UIViewController, GIDSignInUIDelegate {
             UIView.animate(withDuration: 0.5, delay: 0.5, options: .curveEaseOut, animations: {
                 self.optionsView.alpha = 0.3
                 self.lbFriend.alpha = 1
+                self.lbAccess.alpha = 1
                 self.btnGoogleLogin.alpha = 1
                 self.view.layoutIfNeeded()
             }, completion: nil)

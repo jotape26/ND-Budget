@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" constant="225" id="Duj-53-R0B"/>
                                     <constraint firstAttribute="height" constant="60" id="xAR-zQ-FwQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -43,6 +43,12 @@
                                     <constraint firstAttribute="width" constant="150" id="cbJ-AX-Oky"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create or Access your account" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Bvo-9T-FJK">
+                                <rect key="frame" x="56" y="492.5" width="263.5" height="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.054901960784313725" green="0.1764705882352941" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -50,10 +56,12 @@
                             <constraint firstItem="9jw-W7-sF3" firstAttribute="centerX" secondItem="B1w-m4-kGG" secondAttribute="centerX" id="EDu-vv-yyL"/>
                             <constraint firstItem="J9t-2O-mIJ" firstAttribute="top" secondItem="9jw-W7-sF3" secondAttribute="bottom" constant="15" id="Hug-rT-rir"/>
                             <constraint firstItem="kfJ-9o-iVv" firstAttribute="top" secondItem="NEb-J7-yfn" secondAttribute="top" constant="400" id="MU1-ll-Rz3"/>
+                            <constraint firstItem="Bvo-9T-FJK" firstAttribute="centerX" secondItem="B1w-m4-kGG" secondAttribute="centerX" id="Rca-Cp-oPw"/>
                             <constraint firstItem="qU7-hJ-tRb" firstAttribute="centerY" secondItem="kfJ-9o-iVv" secondAttribute="centerY" id="UF4-gX-Ej9"/>
                             <constraint firstItem="NEb-J7-yfn" firstAttribute="bottom" secondItem="kfJ-9o-iVv" secondAttribute="bottom" constant="18" id="VWa-0V-XxP"/>
                             <constraint firstItem="qU7-hJ-tRb" firstAttribute="centerX" secondItem="kfJ-9o-iVv" secondAttribute="centerX" id="gee-03-7IP"/>
                             <constraint firstItem="9jw-W7-sF3" firstAttribute="centerY" secondItem="B1w-m4-kGG" secondAttribute="centerY" constant="-150" id="hvx-yi-MFh"/>
+                            <constraint firstItem="qU7-hJ-tRb" firstAttribute="top" secondItem="Bvo-9T-FJK" secondAttribute="bottom" constant="10" id="shh-Fm-eei"/>
                             <constraint firstItem="NEb-J7-yfn" firstAttribute="trailing" secondItem="kfJ-9o-iVv" secondAttribute="trailing" constant="18" id="uGO-bW-zWa"/>
                             <constraint firstItem="J9t-2O-mIJ" firstAttribute="centerX" secondItem="B1w-m4-kGG" secondAttribute="centerX" id="vcc-d2-gjb"/>
                         </constraints>
@@ -61,6 +69,7 @@
                     </view>
                     <connections>
                         <outlet property="btnGoogleLogin" destination="qU7-hJ-tRb" id="WAg-8m-etm"/>
+                        <outlet property="lbAccess" destination="Bvo-9T-FJK" id="4Dz-sH-5z3"/>
                         <outlet property="lbFriend" destination="J9t-2O-mIJ" id="2hk-gb-cWH"/>
                         <outlet property="logoConstraint" destination="hvx-yi-MFh" id="E2g-4g-cr8"/>
                         <outlet property="optionsView" destination="kfJ-9o-iVv" id="Ogz-yp-UJE"/>
