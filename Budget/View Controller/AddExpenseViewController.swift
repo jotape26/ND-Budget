@@ -33,7 +33,6 @@ class AddExpenseViewController: UIViewController {
         txtCategory.inputView = pickerView
         
         navigationController?.navigationBar.tintColor = UIColor.white
-        
         saveButton.layer.cornerRadius = 10
         
     }

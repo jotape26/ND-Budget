@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var lbUsername: UILabel!
     @IBOutlet weak var optionsTable: UITableView!
+    @IBOutlet weak var closeBtn: UIButton!
     
     let options = ["Edit Profile",
                    "Logout",
@@ -36,6 +37,10 @@ class ProfileViewController: UIViewController {
         } else {
             lbUsername.text = ""
         }
+        
+        navigationController?.navigationBar.tintColor = UIColor.white
+        closeBtn.imageView?.image!.withRenderingMode(.alwaysTemplate)
+        closeBtn.imageView?.tintColor = UIColor.white
         
         downloadPhoto()
         
@@ -69,8 +74,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             GIDSignIn.sharedInstance()?.disconnect()
-            UserDefaults.standard.set(false, forKey: "loginCompleted")
-            UserDefaults.standard.set(false, forKey: "profileCompleted")
         }
     }
     

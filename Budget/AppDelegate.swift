@@ -117,6 +117,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         defaults.removeObject(forKey: "userEmail")
         defaults.removeObject(forKey: "userImage")
         defaults.removeObject(forKey: "userToken")
+        defaults.set(false, forKey: "loginCompleted")
+        defaults.set(false, forKey: "profileCompleted")
         
         backToOnboarding()
     }

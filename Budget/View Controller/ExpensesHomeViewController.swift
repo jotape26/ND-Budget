@@ -15,23 +15,23 @@ class ExpensesHomeViewController: UIViewController {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var expensesTable: UITableView!
     @IBOutlet weak var lbBudget: UILabel!
-    @IBOutlet weak var profileButton: UIBarButtonItem!
-    @IBOutlet weak var addExpenseButton: UIBarButtonItem!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var budgetHeight: NSLayoutConstraint!
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var smileyImage: UIImageView!
+    let form = NumberFormatter()
     
     var expenses: [Expense] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        configureScreen()
-        
         expensesTable.register(UINib(nibName: "ExpensesCell", bundle: nil), forCellReuseIdentifier: "ExpensesCell")
         expensesTable.delegate = self
         expensesTable.dataSource = self
+        
+        headerView.backgroundColor = APPCOLOR.DARK_GREEN
+        form.numberStyle = .currencyAccounting
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,33 +40,10 @@ class ExpensesHomeViewController: UIViewController {
         activityIndicator.startAnimating()
         getExpenses()
     }
-    
-    @IBAction func addExpenseClicked(_ sender: Any) {
-        performSegue(withIdentifier: "MainToAddSegue", sender: nil)
-    }
-    
-    @IBAction func profileClicked(_ sender: Any) {
-        performSegue(withIdentifier: "MainToProfileSegue", sender: nil)
-    }
 }
 
 //MARK: - Custom Functions
 extension ExpensesHomeViewController {
-    
-    func configureScreen() {
-        self.navigationController?.navigationBar.barTintColor = APPCOLOR.DARK_GREEN
-        self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedString.Key.foregroundColor: UIColor.white,
-             NSAttributedString.Key.font: UIFont(name: "VanguardCF-Bold", size: 21)!]
-        self.headerView.backgroundColor = APPCOLOR.DARK_GREEN
-        self.navigationItem.leftBarButtonItem = profileButton
-        self.navigationItem.rightBarButtonItem = addExpenseButton
-        self.navigationItem.leftBarButtonItem?.tintColor = APPCOLOR.LIGHT_GREEN
-        self.navigationItem.rightBarButtonItem?.tintColor = APPCOLOR.LIGHT_GREEN
-        self.smileyImage.tintColor = APPCOLOR.DARK_GREEN
-    }
     
     func getExpenses() {
         
@@ -84,7 +61,7 @@ extension ExpensesHomeViewController {
                 }
             })
             
-            let formattetExpense = "\(NumberFormatter().currencySymbol!)\(monthlyExpenses.description)"
+            let formattetExpense = self.form.string(from: monthlyExpenses as NSNumber)!
             
             self.lbBudget.text = "You've spent \(formattetExpense) this month."
             self.activityIndicator.isHidden = true
@@ -115,8 +92,7 @@ extension ExpensesHomeViewController : UITableViewDelegate, UITableViewDataSourc
         
         cell.lbExpenseName.text = expenses[indexPath.row].expenseName
         
-        let form = NumberFormatter()
-        form.numberStyle = .currencyAccounting
+        
         cell.lbExpenseValue.text = form.string(from: expenses[indexPath.row].expenseValue! as NSNumber)
         
         let df = DateFormatter()
