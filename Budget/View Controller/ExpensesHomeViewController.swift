@@ -23,7 +23,6 @@ class ExpensesHomeViewController: UIViewController {
     @IBOutlet weak var smileyImage: UIImageView!
     
     var expenses: [Expense] = []
-    var test = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,23 +75,26 @@ extension ExpensesHomeViewController {
                 self.smileyImage.isHidden = true
             }
             
-            self.test = 0.0
+            var monthlyExpenses = 0.0
             
             self.expenses.forEach({ (t) in
-                self.test = self.test + t.expenseValue!
+                if Calendar.current.isDate(t.expenseDate!, equalTo: Date(), toGranularity: .month){
+                    monthlyExpenses = monthlyExpenses + t.expenseValue!
+                }
             })
             
-            self.lbBudget.text = "\(self.test)"
+            self.lbBudget.text = "\(monthlyExpenses)"
             self.activityIndicator.isHidden = true
             self.activityIndicator.stopAnimating()
             
-            if self.test > 2000.0 {
-                UIView.animate(withDuration: 1.5, animations: {
-                    self.budgetHeight.constant = 30
-                    self.budgetLabel.backgroundColor = APPCOLOR.ORANGE
-                })
+            if let userBudget = UserDefaults.standard.value(forKey: "userBudget") as? Double {
+                if monthlyExpenses > userBudget {
+                    UIView.animate(withDuration: 1.5, animations: {
+                        self.budgetHeight.constant = 30
+                        self.budgetLabel.backgroundColor = APPCOLOR.ORANGE
+                    })
+                }
             }
-            
             
             self.expensesTable.reloadData()
         }

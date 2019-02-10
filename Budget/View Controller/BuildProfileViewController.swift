@@ -51,14 +51,17 @@ class BuildProfileViewController: UIViewController {
     
     @IBAction func completeButtonClicked(_ sender: Any) {
         if let trimmedBudgetString = budgetTextField.text {
-            let budgetString = trimmedBudgetString
-                .replacingOccurrences(of: "$", with: "")
-                .replacingOccurrences(of: NumberFormatter().groupingSeparator, with: "")
             
-            if let budgetValue = Double(budgetString) {
+            let form = NumberFormatter()
+            let budgetString = trimmedBudgetString
+                .replacingOccurrences(of: form.currencySymbol, with: "")
+                .replacingOccurrences(of: form.groupingSeparator, with: "")
+            
+            if let budgetValue = form.number(from: budgetString) {
                 let userInfo = ["budget" : budgetValue] as [String: Any]
                 
                 FirebaseService.createDBInfo(userInfo)
+                UserDefaults.standard.set(budgetValue, forKey: "userBudget")
                 UserDefaults.standard.set(true, forKey: "profileCompleted")
                 self.performSegue(withIdentifier: "ProfileToMainSegue", sender: nil)
             } else {
