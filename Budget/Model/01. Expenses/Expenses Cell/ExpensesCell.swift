@@ -11,7 +11,7 @@ import UIKit
 class ExpensesCell: UITableViewCell {
 
     @IBOutlet weak var backgroundFromCell: UIView!
-    @IBOutlet weak private var expenseText: UILabel!
+    @IBOutlet weak var expenseText: UILabel!
     @IBOutlet weak var lbExpenseName: UILabel!
     @IBOutlet weak var lbExpenseValue: UILabel!
     @IBOutlet weak var lbDateExpense: UILabel!

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DAACBF122D7782E1882958A9 /* Pods_Budget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258420E8C6E775639257DC36 /* Pods_Budget.framework */; };
 		FA782FC6220FC26100221AC0 /* BuildProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA782FC5220FC26100221AC0 /* BuildProfileViewController.swift */; };
+		FA85E53622102A06009DABBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85E53522102A06009DABBD /* Extensions.swift */; };
+		FA85E53A22102B1D009DABBD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85E53922102B1D009DABBD /* Category.swift */; };
 		FAA2416B220E2B1A00ED4426 /* OnboardingInitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2416A220E2B1A00ED4426 /* OnboardingInitialViewController.swift */; };
 		FAA2416E220E53A800ED4426 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA2416D220E53A800ED4426 /* FirebaseService.swift */; };
 		FAA24170220E6BEB00ED4426 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAA2416F220E6BEB00ED4426 /* GoogleService-Info.plist */; };
@@ -34,6 +36,8 @@
 		4C0261AAA6ADE54C03D2C4FC /* Pods-Budget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.debug.xcconfig"; sourceTree = "<group>"; };
 		904E0CD4B643F0A440081470 /* Pods-Budget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Budget/Pods-Budget.release.xcconfig"; sourceTree = "<group>"; };
 		FA782FC5220FC26100221AC0 /* BuildProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildProfileViewController.swift; sourceTree = "<group>"; };
+		FA85E53522102A06009DABBD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FA85E53922102B1D009DABBD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FAA2416A220E2B1A00ED4426 /* OnboardingInitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInitialViewController.swift; sourceTree = "<group>"; };
 		FAA2416D220E53A800ED4426 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		FAA2416F220E6BEB00ED4426 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -83,6 +87,14 @@
 				258420E8C6E775639257DC36 /* Pods_Budget.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA85E53722102B00009DABBD /* 02. Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FA85E53922102B1D009DABBD /* Category.swift */,
+			);
+			path = "02. Categories";
 			sourceTree = "<group>";
 		};
 		FAA2416C220E538F00ED4426 /* Service */ = {
@@ -188,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				FAC5B23D220CF5F400DD66CF /* 01. Expenses */,
+				FA85E53722102B00009DABBD /* 02. Categories */,
+				FA85E53522102A06009DABBD /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -391,7 +405,9 @@
 				FAA2417B220F7E9000ED4426 /* ImageService.swift in Sources */,
 				FAC5B230220CE5E200DD66CF /* ColorConstants.swift in Sources */,
 				FAC5B21D220A73A600DD66CF /* ExpensesHomeViewController.swift in Sources */,
+				FA85E53622102A06009DABBD /* Extensions.swift in Sources */,
 				FAA2416E220E53A800ED4426 /* FirebaseService.swift in Sources */,
+				FA85E53A22102B1D009DABBD /* Category.swift in Sources */,
 				FAA24179220F7DDE00ED4426 /* ProfileViewController.swift in Sources */,
 				FAC5B21B220A73A600DD66CF /* AppDelegate.swift in Sources */,
 				FAC5B23F220CF60600DD66CF /* Expense.swift in Sources */,

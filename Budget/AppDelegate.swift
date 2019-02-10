@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
+        let newFont = UIFont(name: "Hiragino Sans W3", size: 17.0)!
+        let color = UIColor.white
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([.foregroundColor: color, .font: newFont], for: .normal)
+        
         if defaults.value(forKey: "loginCompleted") as? Bool == true {
             if defaults.value(forKey: "profileCompleted") as? Bool == true {
                  goToHome()

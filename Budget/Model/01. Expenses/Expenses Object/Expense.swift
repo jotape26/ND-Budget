@@ -15,6 +15,7 @@ class Expense : Mappable {
     var expenseName: String?
     var expenseValue: Double?
     var expenseDate: Date?
+    var category: String?
     
     required init?(map: Map) {}
     
@@ -25,5 +26,7 @@ class Expense : Mappable {
         if let timestamp = try? map.value("created_at") as Timestamp {
             expenseDate = timestamp.dateValue()
         }
+        
+        category = try? map.value("category")
     }
 }

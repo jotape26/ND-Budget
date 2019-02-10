@@ -23,38 +23,38 @@
                         <rect key="frame" x="8" y="8" width="342" height="121.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b9-My-ZwU">
-                                <rect key="frame" x="8" y="8" width="65" height="20"/>
+                                <rect key="frame" x="8" y="8" width="62.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="u3J-rm-D7m"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMV-WQ-itI">
-                                <rect key="frame" x="222.5" y="36" width="111.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Expense Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IMV-WQ-itI">
+                                <rect key="frame" x="226.5" y="36" width="107.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="1el-AR-4Zv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMh-wd-lbm">
-                                <rect key="frame" x="222.5" y="8" width="111.5" height="20"/>
+                                <rect key="frame" x="226.5" y="8" width="107.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="5tx-oM-O7h"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgs-90-7MI">
-                                <rect key="frame" x="8" y="36" width="114.5" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="vgs-90-7MI">
+                                <rect key="frame" x="8" y="36" width="110.5" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="KYP-xB-bEE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -69,6 +69,7 @@
                             <constraint firstItem="vgs-90-7MI" firstAttribute="leading" secondItem="rmq-Tn-lWb" secondAttribute="leading" constant="8" id="nh0-Hn-iS4"/>
                             <constraint firstAttribute="bottom" secondItem="vgs-90-7MI" secondAttribute="bottom" constant="8" id="spJ-Hk-zYH"/>
                             <constraint firstAttribute="trailing" secondItem="IMV-WQ-itI" secondAttribute="trailing" constant="8" id="uj2-a2-0KF"/>
+                            <constraint firstItem="IMV-WQ-itI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vgs-90-7MI" secondAttribute="trailing" constant="8" id="w0l-B4-J4S"/>
                             <constraint firstItem="3b9-My-ZwU" firstAttribute="top" secondItem="rmq-Tn-lWb" secondAttribute="top" constant="8" id="wNO-ne-N8j"/>
                             <constraint firstItem="3b9-My-ZwU" firstAttribute="centerY" secondItem="WMh-wd-lbm" secondAttribute="centerY" id="wdH-6p-Wde"/>
                             <constraint firstItem="IMV-WQ-itI" firstAttribute="top" secondItem="WMh-wd-lbm" secondAttribute="bottom" constant="8" id="ytr-SZ-OCR"/>

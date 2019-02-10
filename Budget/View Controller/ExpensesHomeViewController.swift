@@ -36,6 +36,7 @@ class ExpensesHomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         activityIndicator.isHidden = false
+        lbBudget.text = ""
         activityIndicator.startAnimating()
         getExpenses()
     }
@@ -83,7 +84,9 @@ extension ExpensesHomeViewController {
                 }
             })
             
-            self.lbBudget.text = "\(monthlyExpenses)"
+            let formattetExpense = "\(NumberFormatter().currencySymbol!)\(monthlyExpenses.description)"
+            
+            self.lbBudget.text = "You've spent \(formattetExpense) this month."
             self.activityIndicator.isHidden = true
             self.activityIndicator.stopAnimating()
             
@@ -111,7 +114,10 @@ extension ExpensesHomeViewController : UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "ExpensesCell") as! ExpensesCell
         
         cell.lbExpenseName.text = expenses[indexPath.row].expenseName
-        cell.lbExpenseValue.text = expenses[indexPath.row].expenseValue?.description
+        
+        let form = NumberFormatter()
+        form.numberStyle = .currencyAccounting
+        cell.lbExpenseValue.text = form.string(from: expenses[indexPath.row].expenseValue! as NSNumber)
         
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yyyy"
@@ -120,6 +126,10 @@ extension ExpensesHomeViewController : UITableViewDelegate, UITableViewDataSourc
             cell.lbDateExpense.text = df.string(from: expense)
         } else {
             cell.lbDateExpense.text = ""
+        }
+        
+        if let category = expenses [indexPath.row].category {
+            cell.expenseText.text = category
         }
         
         return cell

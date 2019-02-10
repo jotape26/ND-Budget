@@ -34,6 +34,9 @@ class BuildProfileViewController: UIViewController {
         
         budgetTextField.addTarget(self, action: #selector(budgetChanged), for: .editingChanged)
         
+        lbUserName = HelperMethods.customizeTextField(lbUserName)
+        budgetTextField = HelperMethods.customizeTextField(budgetTextField)
+        
         ImageService.downloadUserImage { (userImage) in
             DispatchQueue.main.async {
                 self.userImage.image = userImage
@@ -50,14 +53,9 @@ class BuildProfileViewController: UIViewController {
     }
     
     @IBAction func completeButtonClicked(_ sender: Any) {
-        if let trimmedBudgetString = budgetTextField.text {
+        if let budgetText = budgetTextField.text {
             
-            let form = NumberFormatter()
-            let budgetString = trimmedBudgetString
-                .replacingOccurrences(of: form.currencySymbol, with: "")
-                .replacingOccurrences(of: form.groupingSeparator, with: "")
-            
-            if let budgetValue = form.number(from: budgetString) {
+            if let budgetValue = HelperMethods.processValue(budgetText) {
                 let userInfo = ["budget" : budgetValue] as [String: Any]
                 
                 FirebaseService.createDBInfo(userInfo)
@@ -68,35 +66,5 @@ class BuildProfileViewController: UIViewController {
                 print("fuck")
             }
         }
-    }
-}
-
-extension String {
-    
-    // formatting text for currency textField
-    func currencyInputFormatting() -> String {
-        
-        var number: NSNumber!
-        let formatter = NumberFormatter()
-        formatter.locale = Locale.current
-        formatter.numberStyle = .currencyAccounting
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        
-        var amountWithPrefix = self
-        
-        // remove from String: "$", ".", ","
-        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
-        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count), withTemplate: "")
-        
-        let double = (amountWithPrefix as NSString).doubleValue
-        number = NSNumber(value: (double / 100))
-        
-        // if first number is 0 or all numbers were deleted
-        guard number != 0 as NSNumber else {
-            return ""
-        }
-        
-        return formatter.string(from: number)!
     }
 }
