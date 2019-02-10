@@ -24,10 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         
-        
-        if defaults.value(forKey: "userName") != nil {
-            goToHome()
+        if defaults.value(forKey: "loginCompleted") as? Bool == true {
+            if defaults.value(forKey: "profileCompleted") as? Bool == true {
+                 goToHome()
+            } else {
+                goToBuildProfile()
+            }
         } else {
+            defaults.set(false, forKey: "loginCompleted")
+            defaults.set(false, forKey: "profileCompleted")
             backToOnboarding()
         }
         
@@ -76,24 +81,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                           accessToken: authentication.accessToken)
         
         Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            if let error = error {
+            if error != nil {
                 print("fuck")
                 return
             }
             if let auth = authResult {
-                self.defaults.set(user.profile.name, forKey: "userName")
-                self.defaults.set(user.profile.email, forKey: "userEmail")
-                self.defaults.set(user.profile.imageURL(withDimension: 100), forKey: "userImage")
-                self.defaults.set(auth.user.uid, forKey: "userToken")
                 
-                let userInfo = ["userName" : user.profile.name,
-                                "userEmail" : user.profile.email,
-                                "registryDate" : Date()] as [String : Any]
-                
-                FirebaseService.createDBInfo(userInfo)
-                
-                print("\(user.profile.name!) logged in.")
-                self.goToHome()
+                if let profile = user.profile {
+                    self.defaults.set(profile.name, forKey: "userName")
+                    self.defaults.set(profile.email, forKey: "userEmail")
+                    self.defaults.set(profile.imageURL(withDimension: 100)?.absoluteString, forKey: "userImage")
+                    self.defaults.set(auth.user.uid, forKey: "userToken")
+                    
+                    let userInfo = ["userName" : user.profile.name,
+                                    "userEmail" : user.profile.email,
+                                    "registryDate" : Date()] as [String : Any]
+                    
+                    FirebaseService.createDBInfo(userInfo)
+                    
+                    print("\(user.profile.name!) logged in.")
+                    self.defaults.set(true, forKey: "loginCompleted")
+                    self.goToBuildProfile()
+                }
             }
         }
     }
@@ -108,24 +117,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
     
     func backToOnboarding() {
-        if let topController = UIApplication.shared.keyWindow?.rootViewController {
-            let onboardingVC = UIStoryboard(name: "Onboarding", bundle: nil).instantiateInitialViewController()
-            topController.present(onboardingVC!, animated: true, completion: nil)
-        }else {
-            let onboardingSB = UIStoryboard(name: "Onboarding", bundle: nil)
-            let initialVC = onboardingSB.instantiateInitialViewController()
+        
+        let onboardingSB = UIStoryboard(name: "Onboarding", bundle: nil)
+        let initialVC = onboardingSB.instantiateInitialViewController()
+        
+        UIView.transition(with: self.window!, duration: 0.5, options: .transitionFlipFromLeft, animations: {
             self.window?.rootViewController = initialVC
-        }
+        }, completion: nil)
     }
     
     func goToHome() {
-        
-        
         let homeSB = UIStoryboard(name: "Main", bundle: nil)
         let initialVC = homeSB.instantiateInitialViewController()
-        self.window?.rootViewController = initialVC
+        
+        UIView.transition(with: self.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.window?.rootViewController = initialVC
+        }, completion: nil)
     }
     
-    
+    func goToBuildProfile() {
+        let homeSB = UIStoryboard(name: "Onboarding", bundle: nil)
+        let profileVC = homeSB.instantiateViewController(withIdentifier: "BuildProfileViewController")
+        
+        UIView.transition(with: self.window!, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.window?.rootViewController = profileVC
+        }, completion: nil)
+    }
 }
 

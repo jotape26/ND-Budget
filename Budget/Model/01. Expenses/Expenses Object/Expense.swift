@@ -8,6 +8,7 @@
 
 import Foundation
 import ObjectMapper
+import FirebaseFirestore
 
 class Expense : Mappable {
 
@@ -20,6 +21,9 @@ class Expense : Mappable {
     func mapping(map: Map) {
         expenseName = try? map.value("expense_name")
         expenseValue = try? map.value("expense_value")
-        expenseDate = try? map.value("created_at")
+        
+        if let timestamp = try? map.value("created_at") as Timestamp {
+            expenseDate = timestamp.dateValue()
+        }
     }
 }

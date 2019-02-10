@@ -20,6 +20,7 @@ class ExpensesHomeViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var budgetHeight: NSLayoutConstraint!
     @IBOutlet weak var budgetLabel: UILabel!
+    @IBOutlet weak var smileyImage: UIImageView!
     
     var expenses: [Expense] = []
     var test = 0.0
@@ -43,6 +44,10 @@ class ExpensesHomeViewController: UIViewController {
     @IBAction func addExpenseClicked(_ sender: Any) {
         performSegue(withIdentifier: "MainToAddSegue", sender: nil)
     }
+    
+    @IBAction func profileClicked(_ sender: Any) {
+        performSegue(withIdentifier: "MainToProfileSegue", sender: nil)
+    }
 }
 
 //MARK: - Custom Functions
@@ -60,12 +65,14 @@ extension ExpensesHomeViewController {
         self.navigationItem.rightBarButtonItem = addExpenseButton
         self.navigationItem.leftBarButtonItem?.tintColor = APPCOLOR.LIGHT_GREEN
         self.navigationItem.rightBarButtonItem?.tintColor = APPCOLOR.LIGHT_GREEN
+        self.smileyImage.tintColor = APPCOLOR.DARK_GREEN
     }
     
     func getExpenses() {
         
         FirebaseService.retrieveUserExpenses { (retrievedExpenses) in
             self.expenses = retrievedExpenses
+            self.test = 0.0
             
             self.expenses.forEach({ (t) in
                 self.test = self.test + t.expenseValue!

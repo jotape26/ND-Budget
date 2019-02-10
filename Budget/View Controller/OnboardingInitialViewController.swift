@@ -9,8 +9,7 @@
 import UIKit
 import GoogleSignIn
 
-class OnboardingInitialViewController: UIViewController, GIDSignInUIDelegate {
-    
+class OnboardingInitialViewController: UIViewController, GIDSignInUIDelegate{
     
     @IBOutlet weak var logoConstraint: NSLayoutConstraint!
     @IBOutlet weak var optionsView: UIView!
@@ -27,11 +26,12 @@ class OnboardingInitialViewController: UIViewController, GIDSignInUIDelegate {
         self.btnGoogleLogin.alpha = 0        
         
         
-        GIDSignIn.sharedInstance().uiDelegate = self
-//        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance()?.uiDelegate = self
+        GIDSignIn.sharedInstance()?.signInSilently()
         optionsView.layer.cornerRadius = 6
         btnGoogleLogin.colorScheme = .light
         btnGoogleLogin.style = .wide
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +49,4 @@ class OnboardingInitialViewController: UIViewController, GIDSignInUIDelegate {
             }, completion: nil)
         })
     }
-    
-    
 }

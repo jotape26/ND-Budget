@@ -14,7 +14,7 @@ class FirebaseService {
     static func createDBInfo(_ userInfo: [String : Any]) {
         let db = Firestore.firestore()
         guard let userID = UserDefaults.standard.string(forKey: "userToken") else { return }
-        db.collection("users").document(userID).setData(userInfo)
+        db.collection("users").document(userID).setData(userInfo, merge: true)
     }
     
     static func createNewExpense(_ expenseData: [String : Any],
