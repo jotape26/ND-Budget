@@ -72,6 +72,10 @@ extension ExpensesHomeViewController {
         
         FirebaseService.retrieveUserExpenses { (retrievedExpenses) in
             self.expenses = retrievedExpenses
+            if !self.expenses.isEmpty {
+                self.smileyImage.isHidden = true
+            }
+            
             self.test = 0.0
             
             self.expenses.forEach({ (t) in
